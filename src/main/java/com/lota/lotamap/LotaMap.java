@@ -29,19 +29,11 @@ public class LotaMap {
 
         modEventBus.addListener(this::commonSetup);
 
-        modEventBus.addListener(this::addCreative);
-
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("LotaMap is loading common setup");
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(ModItems.LICH_PRISON_MAP);
-        }
     }
 
     @SubscribeEvent
